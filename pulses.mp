@@ -59,6 +59,11 @@ def blipf(expr off, xs, ys) =
     xscaled xs yscaled ys shifted off;
 enddef;
 
+def trapf(expr off, xs, ys) =
+  draw ((0,0)--(0.5u,1u)--(2u, 1u)--(2.5u,0))
+    xscaled xs yscaled ys shifted off;
+enddef;
+
 def tablef(expr off, xs, ys, gran, upd) =
   begingroup;
     for i=-gran upto gran:
@@ -190,6 +195,11 @@ enddef;
 
 def xblip(expr l, h) =
   blipf((Ox,Oy),l,h);
+  Ox := Ox + l*u;
+enddef;
+
+def xtrap(expr l, h) =
+  trapf((Ox,Oy),l,h);
   Ox := Ox + l*u;
 enddef;
 
